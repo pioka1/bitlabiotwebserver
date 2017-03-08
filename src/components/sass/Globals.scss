@@ -1,0 +1,21 @@
+$text-s: 1.0rem;
+$text-m: 1.2rem;
+$text-l: 1.5rem;
+$text-xl: 2rem;
+
+html {
+  font-size: 100%;
+}
+h1 {
+  font-size: $text-xl;
+}
+h2 {
+  font-size: $text-l;
+}
+p {
+  font-size: $text-m;
+}
+h1, h2, h3, p, a, span, td, li, label, button, input {
+  font-family: 'Ubuntu', sans-serif;
+  color: #333;
+}
