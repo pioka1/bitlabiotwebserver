@@ -12,17 +12,17 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: path.join(__dirname, 'src', 'app-client.js'),
+    entry: path.join(__dirname, 'src', 'app-client.jsx'),
     output: {
         filename: path.join('js', 'bitlabiot.js'),
-        path: path.join(__dirname, 'src', 'public')
+        path: path.join(__dirname, 'src', 'dist')
     },
     module: {
         rules: [
             // Babel transpiles ES6 to ES5, which is then transpiled from JSX to plain JS
             {
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
+                test: /\.jsx$/,
+                exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
                     presets: ['es2015', 'react']

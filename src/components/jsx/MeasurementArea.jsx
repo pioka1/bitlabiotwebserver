@@ -1,5 +1,5 @@
 import React from 'react';
-import Measurement from './Measurement';
+import Measurement from './Measurement.jsx';
 
 export default class MeasurementArea extends React.Component {
     render() {
