@@ -1,0 +1,28 @@
+@import './variables.scss';
+
+body {
+	margin: 0 0 100px;
+}
+footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 100px;
+	width: 100%;
+	background: #333;
+	padding: 8px 0;
+	p, a {
+		color: #FFF;
+	}
+}
+#app-anchor {
+	padding: 0;
+}
+header {
+	background-color: rgba(255, 0, 0, 0.5);
+	padding: 8px 0;
+	h1 {
+		color: #FFF;
+		text-shadow: 1px 1px #333;
+	}
+}

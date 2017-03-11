@@ -1,17 +1,23 @@
 import React from 'react';
 import MeasurementArea from './MeasurementArea.jsx';
 
+import '../sass/AppLayout.scss';
+
 export default class AppLayout extends React.Component {
     render() {
         return (
             <div id="app-anchor" className="container-fluid">
                 <header>
-                    <h1>Live Noise Measurements</h1>
+                    <div className="container">
+                        <h1>Live Noise Measurements @BITLAB</h1>
+                    </div>
                 </header>
                 <main className="container"><MeasurementArea datauri="/data" refreshrate="2000"/></main>
                 <footer>
-                    <p><strong>Created by:</strong></p>
-                    <p><a>Niclas Horstad</a>, <a>Jacob Friis</a>, <a>Oliver Skjønnemand</a>, og <a>Marcel Schrode</a></p>
+                    <div className="container">
+                        <p><strong>Created by:</strong></p>
+                        <p><a>Niclas Horstad</a>, <a>Jacob Friis</a>, <a>Oliver Skjønnemand</a>, and <a>Marcel Schrode</a></p>
+                    </div>
                 </footer>
             </div>
         );

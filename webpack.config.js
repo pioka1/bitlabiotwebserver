@@ -30,9 +30,11 @@ module.exports = {
             },
             // ExtractTextPlugin transpiles SCSS to CSS files and bundles them into one CSS file
             {
-                test: /\.scss$/,
+                test: /\.(scss|css)$/,
                 loader: ExtractTextPlugin.extract({use: ['css-loader', 'sass-loader']})
-            }
+            },
+            { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
+            { test: /\.(ttf|eot)$/, loader: 'file-loader' },
         ]
     },
     plugins: [

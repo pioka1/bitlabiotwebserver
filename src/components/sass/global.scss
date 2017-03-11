@@ -1,0 +1,20 @@
+@import './variables.scss';
+
+html {
+	position: relative;
+	font-size: 100%;
+	min-height: 100%;
+}
+h1 {
+	font-size: $text-xl;
+}
+h2 {
+	font-size: $text-l;
+}
+p {
+	font-size: $text-m;
+}
+h1, h2, h3, p, a, span, td, li, label, button, input {
+	font-family: 'Ubuntu', sans-serif;
+	color: #333;
+}
