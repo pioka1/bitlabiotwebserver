@@ -5,9 +5,9 @@ import React from 'react';
 export default class Measurement extends React.Component {
     render() {
         return (
-            <div className="measurement">
-                TEST
-            </div>
+            <li className="measurement">
+                Name: {this.props.name} Noise: {this.props.noise}
+            </li>
         );
     }
 }

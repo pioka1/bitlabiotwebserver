@@ -1,0 +1,24 @@
+{
+	"smart_devices": [
+		{
+		  "name": "alpha",
+		  "noise": 30,
+		  "uptime": 120
+		},
+		{
+		  "name": "beta",
+		  "noise": 35,
+		  "uptime": 120
+		},
+		{
+		  "name": "charlie",
+		  "noise": 60,
+		  "uptime": 120
+		},
+		{
+		  "name": "delta",
+		  "noise": 70,
+		  "uptime": 120
+		}
+	]
+}

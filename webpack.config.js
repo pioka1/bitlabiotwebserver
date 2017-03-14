@@ -41,6 +41,11 @@ module.exports = {
         new ExtractTextPlugin({
             filename: path.join('css', 'bitlabiot.css'),
             allChunks: true
-        })
-    ]
+        }),
+    ],
+    node: {
+        net: 'empty',
+        tls: 'empty',
+        dns: 'empty'
+    }
 };
