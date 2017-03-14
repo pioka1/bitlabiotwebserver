@@ -43,9 +43,4 @@ module.exports = {
             allChunks: true
         }),
     ],
-    node: {
-        net: 'empty',
-        tls: 'empty',
-        dns: 'empty'
-    }
 };
