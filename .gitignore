@@ -31,3 +31,6 @@ npm-debug.log
 
 # WebStorm settings
 .idea
+
+# SQLite3 database
+.db

@@ -15,8 +15,9 @@ export default class MeasurementArea extends React.Component {
         let self = this;
         jQuery.get( self.props.datauri, function(data) {
             console.log(data);
+            console.log(data.devices);
             self.setState({
-                devices: data.smart_devices
+                devices: data.devices
             });
         });
     }
@@ -30,9 +31,8 @@ export default class MeasurementArea extends React.Component {
         console.log("this state devices");
         console.log(this.state.devices);
         let rowsOfMeasurements = this.state.devices.map((device) => {
-
             return (
-                <Measurement key={device.name} name={device.name} noise={device.noise} uptime={device.uptime} />
+                <Measurement key={device.name} name={device.name} noise={device.noise} date={device.date} />
             );
         });
         return (
