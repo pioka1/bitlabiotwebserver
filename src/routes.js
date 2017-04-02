@@ -16,15 +16,24 @@ module.exports = function(db) {
             devices: []
         };
 
+        // Save all device names in an array
         db.each('SELECT * FROM Devices', function(err, row) {
+            if (err) return;
             device_names.push(row.name);
             console.log(device_names);
-        }, function() {
-            console.log("First part DONE");
+        }, function(err, numberOfRows) {
+            if (err) {
+                console.error(err);
+                return res.status(500).send();
+            } else if (numberOfRows == 0) {
+                return res.json(data);
+            }
+
+            // Loop through all devices
             for (let i = 0; i < device_names.length; i++) {
-                console.log("inside for loop");
-                let device = i + 1;
-                console.log('SELECT noise, date FROM Measurements WHERE device='+device+' ORDER BY measurement_id DESC');
+                let device = i + 1; // AUTO INCREMENT Id begins at 1 and not 0
+
+                // Get only latest measurements from each device
                 db.get('SELECT noise, date FROM Measurements WHERE device='+device+' ORDER BY measurement_id DESC', function (err, row) {
                     console.log(row);
                     data.devices.push({
@@ -48,11 +57,41 @@ module.exports = function(db) {
 
     router.get('/rpi/:device', function(req, res) {
         let device = req.params.device;
-
+        let limit = req.query.limit;
+        console.log("Params: " + device);
+        console.log("Queries: " + limit);
+        let device_id;
+        let data = [];
         // Database call for latest data from SQLite3
+        db.get('SELECT id FROM Devices WHERE name='+device, function (err, row) {
+            if (err) {
+                console.error("Error at SELECT id\n" + err);
+                return res.status(404).send('Error: Device does not exist in database.');
+            }
+            device_id = row.id;
+            console.log("Device id: " + device_id);
+            db.each('SELECT * FROM Measurements WHERE device='+device_id+' LIMIT 50', function(err, row) {
+                if (err) {
+                    console.error("Error at SELECT Measurements\n" + err);
+                    // Send empty array if Device exists but no Measurement records
+                    return res.json({ "device_name": device, "device_id": device_id, "measurements": data });
+                }
+                // Add each row of data to variable
+                data.push({ "noise": row.noise, "date": new Date(row.date) });
+            }, function(err) {
+                if (err) return console.error("Error at final function\n" + err);
+                res.json({
+                    "device_name": device,
+                    "device_id": device_id,
+                    "measurements": data
+                });
+            });
+        });
+    });
 
-
-        res.send(device);
+    router.post('/rpi/:device', function(req, res){
+        console.log(req.body);
+        res.status(200).send();
     });
 
     return router;
