@@ -30,7 +30,7 @@ module.exports = function(db) {
             }
 
             // Loop through all devices
-            for (let i = 0; i < device_names.length; i++) {
+            for (let i = 0; i < numberOfRows; i++) {
                 let device = i + 1; // AUTO INCREMENT Id begins at 1 and not 0
 
                 // Get only latest measurements from each device
@@ -47,7 +47,7 @@ module.exports = function(db) {
             }
             function sendJson() {
                 console.log("inside sendJson... " + data.devices.length);
-                if (data.devices.length == device_names.length) {
+                if (data.devices.length == numberOfRows) {
                     console.log(data);
                     res.json(data);
                 }
@@ -70,16 +70,21 @@ module.exports = function(db) {
             }
             device_id = row.id;
             console.log("Device id: " + device_id);
+
+            /*
+             *   TODO: If a limit parameter is included, change the database call accordingly.
+             */
             db.each('SELECT * FROM Measurements WHERE device='+device_id+' LIMIT 50', function(err, row) {
                 if (err) {
                     console.error("Error at SELECT Measurements\n" + err);
                     // Send empty array if Device exists but no Measurement records
                     return res.json({ "device_name": device, "device_id": device_id, "measurements": data });
                 }
-                // Add each row of data to variable
+                // Add each row to data variable
                 data.push({ "noise": row.noise, "date": new Date(row.date) });
             }, function(err) {
                 if (err) return console.error("Error at final function\n" + err);
+                // Send JSON with data array as response
                 res.json({
                     "device_name": device,
                     "device_id": device_id,
@@ -90,8 +95,49 @@ module.exports = function(db) {
     });
 
     router.post('/rpi/:device', function(req, res){
+        let new_resource = false;
+
+        // Device url must match device name provided in JSON payload
+        if (!req.params.device === req.body.device) {
+            return res.status(403).send("Device param does not match device name in JSON payload");
+        }
+
         console.log(req.body);
-        res.status(200).send();
+
+        // Check if device exists
+        console.log("Checking if device exists...");
+        db.get("SELECT id FROM Devices WHERE name = ?", req.body.device, function (err, row) {
+            if (!row) {
+
+                db.run('INSERT INTO Devices(name) VALUES (?)', req.body.device, function(err) {
+                    if (err) {
+                        console.log(err);
+                        return res.status(500).send(err);
+                    }
+                    console.log("Device does not exist in database. Performed INSERT query.");
+                    console.log(this);
+                    new_resource = true;
+                    runInsertWithId(this.lastID);
+                });
+
+            } else {
+                console.log("Row retrieved:");
+                console.log(row);
+                runInsertWithId(row.id);
+            }
+
+            function runInsertWithId(id) {
+                console.log("Running INSERT INTO with following id: " + id);
+                // Use ID to post Measurement
+                db.run('INSERT INTO Measurements(device, noise, date) VALUES (?, ?, ?)', [id, req.body.noise, req.body.date], function(err) {
+                    if (err) return res.status(500).send("Something broke..");
+                    if (new_resource) return res.status(201).send("Device created and measurements stored successfully");
+                    res.send("Measurements stored successfully");
+                });
+            }
+
+        });
+
     });
 
     return router;

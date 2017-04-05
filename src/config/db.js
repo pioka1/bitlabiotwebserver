@@ -17,7 +17,7 @@ db.serialize(function() {
         // Create Devices table
         db.run('CREATE TABLE Devices (id INTEGER PRIMARY KEY, name TEXT)');
         // Create Measurements table
-        db.run('CREATE TABLE Measurements (measurement_id INTEGER PRIMARY KEY, device INTEGER, noise REAL, date INTEGER, FOREIGN KEY(device) REFERENCES Devices(id))');
+        db.run('CREATE TABLE Measurements (measurement_id INTEGER PRIMARY KEY, device INTEGER, noise REAL, date TEXT, FOREIGN KEY(device) REFERENCES Devices(id))');
 
 /*
         // Insert devices in array
