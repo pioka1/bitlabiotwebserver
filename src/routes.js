@@ -39,7 +39,7 @@ module.exports = function(db) {
                     data.devices.push({
                         name: device_names[i],
                         noise: row.noise,
-                        date: new Date(row.date)
+                        date: row.date
                     });
                     console.log("launching sendJson");
                     sendJson();
@@ -48,6 +48,11 @@ module.exports = function(db) {
             function sendJson() {
                 console.log("inside sendJson... " + data.devices.length);
                 if (data.devices.length == numberOfRows) {
+                    data.devices = data.devices.sort(function(a, b) {
+                        if (a.name < b.name) return -1;
+                        if (a.name > b.name) return 1;
+                        return 0;
+                    });
                     console.log(data);
                     res.json(data);
                 }

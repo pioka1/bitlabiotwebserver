@@ -9614,13 +9614,32 @@ var Measurement = function (_React$Component) {
     _createClass(Measurement, [{
         key: "render",
         value: function render() {
+            var date_formatted = new Date(parseInt(this.props.date)).toString();
             return _react2.default.createElement(
                 "li",
                 { className: "measurement" },
-                "Name: ",
-                this.props.name,
-                " Noise: ",
-                this.props.noise
+                _react2.default.createElement(
+                    "h2",
+                    null,
+                    this.props.name
+                ),
+                _react2.default.createElement(
+                    "h1",
+                    null,
+                    this.props.noise,
+                    " dB"
+                ),
+                _react2.default.createElement("br", null),
+                _react2.default.createElement(
+                    "p",
+                    null,
+                    "Recorded on:"
+                ),
+                _react2.default.createElement(
+                    "p",
+                    null,
+                    date_formatted
+                )
             );
         }
     }]);
@@ -9680,11 +9699,11 @@ var MeasurementArea = function (_React$Component) {
     _createClass(MeasurementArea, [{
         key: 'getDeviceData',
         value: function getDeviceData() {
-            console.log("get device data");
+            console.log("React: Running getDeviceData()...");
             var self = this;
             _jquery2.default.get(self.props.datauri, function (data) {
-                console.log(data);
                 console.log(data.devices);
+                // Sort array by device name
                 self.setState({
                     devices: data.devices
                 });
@@ -9693,13 +9712,14 @@ var MeasurementArea = function (_React$Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            console.log("component did mount");
+            console.log("React: Running componentDidMount()...");
+            this.getDeviceData();
             setInterval(this.getDeviceData.bind(this), 2000);
         }
     }, {
         key: 'render',
         value: function render() {
-            console.log("this state devices");
+            console.log("React: Current state of \"devices\":");
             console.log(this.state.devices);
             var rowsOfMeasurements = this.state.devices.map(function (device) {
                 return _react2.default.createElement(_Measurement2.default, { key: device.name, name: device.name, noise: device.noise, date: device.date });

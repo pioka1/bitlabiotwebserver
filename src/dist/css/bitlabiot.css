@@ -17,10 +17,33 @@ footer {
 
 header {
   background-color: rgba(255, 0, 0, 0.5);
-  padding: 8px 0; }
+  padding: 8px 0;
+  box-shadow: 2px 2px 2px #ccc; }
   header h1 {
     color: #FFF;
     text-shadow: 1px 1px #333; }
+
+main {
+  margin: 12px 0; }
+
+ul {
+  display: block;
+  text-align: center;
+  list-style-type: none;
+  padding: 0; }
+
+.measurement {
+  display: inline-block;
+  margin: 8px;
+  padding: 0 10px;
+  border: solid 1px #ccc;
+  border-radius: 10px; }
+  .measurement h1, .measurement h2 {
+    text-align: center; }
+  .measurement h2 {
+    text-transform: uppercase; }
+  .measurement p {
+    color: #8c8c8c; }
 @charset "UTF-8";
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)

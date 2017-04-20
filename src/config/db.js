@@ -19,24 +19,22 @@ db.serialize(function() {
         // Create Measurements table
         db.run('CREATE TABLE Measurements (measurement_id INTEGER PRIMARY KEY, device INTEGER, noise REAL, date TEXT, FOREIGN KEY(device) REFERENCES Devices(id))');
 
-/*
         // Insert devices in array
-        let devices = ['niclas', 'jacob', 'oliver', 'marcel'];
+        let devices = ['alpha', 'beta', 'charlie', 'delta'];
         for (let i = 0; i < devices.length; i++) {
             db.run('INSERT INTO Devices(name) VALUES (?)', devices[i]);
         }
 
         for (let j = 0; j < devices.length; j++) {
-            for (let k = 0; k < 5; k++) {
+            for (let k = 0; k < 100; k++) {
                 // Generate random single-decimal number between 0 and 99.9
                 let device = j + 1;
                 let noise = Math.round(((Math.random() * 100) + 1) * 10 ) / 10;
-                let date = new Date();
+                let date = new Date().getTime();
 
                 db.run('INSERT INTO Measurements(device, noise, date) VALUES (?, ?, ?)', [device, noise, date]);
             }
         }
-*/
     }
 });
 
