@@ -12,7 +12,7 @@ export default class AppLayout extends React.Component {
                         <h1>Live Noise Measurements @BITLAB</h1>
                     </div>
                 </header>
-                <main className="container-fluid"><MeasurementArea datauri="/rpi" refreshrate="2000"/></main>
+                <main className="container-fluid"><MeasurementArea datauri="/rpi" refreshrate="10000"/></main>
                 <footer>
                     <div className="container">
                         <p><strong>Created by:</strong></p>

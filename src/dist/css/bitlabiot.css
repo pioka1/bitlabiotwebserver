@@ -44,6 +44,9 @@ ul {
     text-transform: uppercase; }
   .measurement p {
     color: #8c8c8c; }
+
+#update_timer {
+  text-align: center; }
 @charset "UTF-8";
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)

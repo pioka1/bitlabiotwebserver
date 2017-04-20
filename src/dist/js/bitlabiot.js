@@ -9498,7 +9498,7 @@ var AppLayout = function (_React$Component) {
                 _react2.default.createElement(
                     'main',
                     { className: 'container-fluid' },
-                    _react2.default.createElement(_MeasurementArea2.default, { datauri: '/rpi', refreshrate: '2000' })
+                    _react2.default.createElement(_MeasurementArea2.default, { datauri: '/rpi', refreshrate: '10000' })
                 ),
                 _react2.default.createElement(
                     'footer',
@@ -9691,7 +9691,8 @@ var MeasurementArea = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (MeasurementArea.__proto__ || Object.getPrototypeOf(MeasurementArea)).call(this));
 
         _this.state = {
-            devices: []
+            devices: [],
+            timer: 0
         };
         return _this;
     }
@@ -9703,24 +9704,55 @@ var MeasurementArea = function (_React$Component) {
             var self = this;
             _jquery2.default.get(self.props.datauri, function (data) {
                 console.log(data.devices);
-                // Sort array by device name
-                self.setState({
-                    devices: data.devices
+
+                self.setState(function (prevState) {
+                    return {
+                        devices: data.devices,
+                        timer: prevState.timer
+                    };
                 });
             });
+        }
+    }, {
+        key: 'launchTimer',
+        value: function launchTimer() {
+            var self = this;
+            var timer = self.props.refreshrate / 1000 - 1;
+            console.log(timer);
+            updateTimer();
+
+            setInterval(function () {
+                if (!(timer === 0)) {
+                    timer--;
+                } else {
+                    timer = self.props.refreshrate / 1000 - 1;
+                }
+                console.log(timer);
+                updateTimer();
+            }, 1000);
+
+            function updateTimer() {
+                self.setState(function (prevState) {
+                    return {
+                        devices: prevState.devices,
+                        timer: timer
+                    };
+                });
+            }
         }
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
             console.log("React: Running componentDidMount()...");
+            this.launchTimer();
             this.getDeviceData();
-            setInterval(this.getDeviceData.bind(this), 2000);
+            setInterval(this.getDeviceData.bind(this), parseInt(this.props.refreshrate));
         }
     }, {
         key: 'render',
         value: function render() {
             console.log("React: Current state of \"devices\":");
-            console.log(this.state.devices);
+            console.log(this.state);
             var rowsOfMeasurements = this.state.devices.map(function (device) {
                 return _react2.default.createElement(_Measurement2.default, { key: device.name, name: device.name, noise: device.noise, date: device.date });
             });
@@ -9734,6 +9766,12 @@ var MeasurementArea = function (_React$Component) {
                         'ul',
                         null,
                         rowsOfMeasurements
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        { id: 'update_timer' },
+                        'Updating in ',
+                        this.state.timer
                     )
                 )
             );
