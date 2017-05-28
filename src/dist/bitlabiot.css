@@ -1,27 +1,43 @@
 body {
-  margin: 0 0 100px; }
+  margin: 0 0 60px;
+  background-color: transparent !important; }
 
 footer {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 100px;
+  height: 60px;
   width: 100%;
-  background: #333;
+  background: #666666;
   padding: 8px 0; }
   footer p, footer a {
     color: #FFF; }
+  footer #contact-us-btn {
+    padding: 4px 12px;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    background-color: #3f5992;
+    border: #a7e0ff 1px solid;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto; }
 
 #app-anchor {
   padding: 0; }
 
 header {
-  background-color: rgba(255, 0, 0, 0.5);
+  background-color: #3f5992;
   padding: 8px 0;
   box-shadow: 2px 2px 2px #ccc; }
+  header #cbs-logo {
+    max-height: 82px; }
+  header h1, header #clock p {
+    color: #FFFFFF; }
   header h1 {
-    color: #FFF;
-    text-shadow: 1px 1px #333; }
+    text-shadow: #000 1px 1px; }
+  header #clock {
+    margin-top: 8px;
+    float: right; }
 
 main {
   margin: 12px 0; }
@@ -34,6 +50,7 @@ ul {
 
 .measurement {
   display: inline-block;
+  background-color: #FFFFFF;
   margin: 8px;
   padding: 0 10px;
   border: solid 1px #ccc;
@@ -46,7 +63,10 @@ ul {
     color: #8c8c8c; }
 
 #update_timer {
-  text-align: center; }
+  text-align: center;
+  background-color: #FFFFFF;
+  border-top: #CCCCCC 1px solid;
+  border-bottom: #CCCCCC 1px solid; }
 @charset "UTF-8";
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -5862,10 +5882,31 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+@font-face {
+  font-family: "cbs-sans";
+  src: url(8c70b15a8e670c1ba2521b1d24b41001.ttf);
+  font-weight: normal; }
+
+@font-face {
+  font-family: "cbs-sans";
+  src: url(a31aa9c4526a7d9bf587af1fe258545c.ttf);
+  font-weight: bold; }
+
 html {
   position: relative;
   font-size: 100%;
   min-height: 100%; }
+
+#app-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(0d4cdd2f085bd40dc6677ed582513615.svg) no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.2;
+  z-index: -1; }
 
 h1 {
   font-size: 3rem; }
@@ -5877,5 +5918,8 @@ p {
   font-size: 1.2rem; }
 
 h1, h2, h3, p, a, span, td, li, label, button, input {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'cbs-sans', sans-serif;
   color: #333; }
+
+a:hover, a:active, a:focus {
+  color: #9bd1ff; }

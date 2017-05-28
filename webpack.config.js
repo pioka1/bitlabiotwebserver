@@ -14,7 +14,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: path.join(__dirname, 'src', 'app-client.jsx'),
     output: {
-        filename: path.join('js', 'bitlabiot.js'),
+        filename: 'bitlabiot.js',
         path: path.join(__dirname, 'src', 'dist')
     },
     module: {
@@ -39,7 +39,7 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: path.join('css', 'bitlabiot.css'),
+            filename: 'bitlabiot.css',
             allChunks: true
         }),
     ],

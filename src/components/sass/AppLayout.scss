@@ -1,30 +1,50 @@
 @import './variables.scss';
 
 body {
-	margin: 0 0 100px;
+	margin: 0 0 60px;
+	background-color: transparent !important;
 }
 footer {
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	height: 100px;
+	height: 60px;
 	width: 100%;
-	background: #333;
+	background: #666666;
 	padding: 8px 0;
 	p, a {
 		color: #FFF;
+	}
+	#contact-us-btn {
+		padding: 4px 12px;
+		font-size: 1.2rem;
+		color: #FFFFFF;
+		background-color: #3f5992;
+		border: #a7e0ff 1px solid;
+		border-radius: 4px;
+		display: block;
+		margin: 0 auto;
 	}
 }
 #app-anchor {
 	padding: 0;
 }
 header {
-	background-color: rgba(255, 0, 0, 0.5);
+	background-color: #3f5992;
 	padding: 8px 0;
 	box-shadow: 2px 2px 2px #ccc;
+	#cbs-logo {
+		max-height: 82px;
+	}
+	h1, #clock p {
+		color: #FFFFFF;
+	}
 	h1 {
-		color: #FFF;
-		text-shadow: 1px 1px #333;
+		text-shadow: #000 1px 1px;
+	}
+	#clock {
+		margin-top: 8px;
+		float: right;
 	}
 }
 main {
@@ -38,6 +58,7 @@ ul {
 }
 .measurement {
 	display: inline-block;
+	background-color: #FFFFFF;
 	margin: 8px;
 	padding: 0 10px;
 	border: solid 1px #ccc;
@@ -54,4 +75,7 @@ ul {
 }
 #update_timer {
 	text-align: center;
+	background-color: #FFFFFF;
+	border-top: #CCCCCC 1px solid;
+	border-bottom: #CCCCCC 1px solid;
 }

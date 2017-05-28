@@ -1,9 +1,31 @@
 @import './variables.scss';
 
+@font-face {
+	font-family: "cbs-sans";
+	src: url("../../assets/CBS NEW REGULAR.ttf");
+	font-weight: normal;
+}
+@font-face {
+	font-family: "cbs-sans";
+	src: url("../../assets/CBS NEW BOLD.ttf");
+	font-weight: bold;
+}
+
 html {
 	position: relative;
 	font-size: 100%;
 	min-height: 100%;
+}
+#app-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: url("../../assets/cbs_background.svg") no-repeat center center fixed;
+	background-size: cover;
+	opacity: 0.2;
+	z-index: -1;
 }
 h1 {
 	font-size: $text-xl;
@@ -15,6 +37,9 @@ p {
 	font-size: $text-m;
 }
 h1, h2, h3, p, a, span, td, li, label, button, input {
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'cbs-sans', sans-serif;
 	color: #333;
+}
+a:hover, a:active, a:focus {
+	color: #9bd1ff;
 }
