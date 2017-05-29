@@ -68,7 +68,7 @@ module.exports = function(db) {
         let device_id;
         let data = [];
         // Database call for latest data from SQLite3
-        db.get('SELECT id FROM Devices WHERE name='+device, function (err, row) {
+        db.get('SELECT id FROM Devices WHERE name = ?', device, function (err, row) {
             if (err) {
                 console.error("Error at SELECT id\n" + err);
                 return res.status(404).send('Error: Device does not exist in database.');
@@ -86,7 +86,7 @@ module.exports = function(db) {
                     return res.json({ "device_name": device, "device_id": device_id, "measurements": data });
                 }
                 // Add each row to data variable
-                data.push({ "noise": row.noise, "date": new Date(row.date) });
+                data.push({ "noise": row.noise, "date": row.date });
             }, function(err) {
                 if (err) return console.error("Error at final function\n" + err);
                 // Send JSON with data array as response
