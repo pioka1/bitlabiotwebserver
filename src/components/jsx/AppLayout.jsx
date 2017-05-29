@@ -37,7 +37,7 @@ export default class AppLayout extends React.Component {
                                 <button id="contact-us-btn" onclick="location.href='mailto:rup.itm@cbs.dk';">Contact Us</button>
                             </div>
                             <div className="col-md-4">
-                                <p><strong>Created by: </strong><a href="mailto:niho12ag@student.cbs.dk">Niclas Horstad</a>, <a href="mailto:jafr15aj@student.cbs.dk">Jacob Friis</a>, <a href="mailto:">Oliver Skjønnemand</a>, and <a href="mailto:">Marcel Schrode</a></p>
+                                <p><strong>Created by: </strong><a href="mailto:niho12ag@student.cbs.dk">Niclas Horstad</a>, <a href="mailto:jafr15aj@student.cbs.dk">Jacob Friis</a>, <a href="mailto:olsk15ab@student.cbs.dk">Oliver Skjønnemand</a>, and <a href="mailto:masc16ay@student.cbs.dk">Marcel Schrode</a></p>
                             </div>
                         </div>
                     </div>

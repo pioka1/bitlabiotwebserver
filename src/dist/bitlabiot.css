@@ -34,6 +34,7 @@ header {
   header h1, header #clock p {
     color: #FFFFFF; }
   header h1 {
+    text-align: center;
     text-shadow: #000 1px 1px; }
   header #clock {
     margin-top: 8px;

@@ -9573,19 +9573,19 @@ var AppLayout = function (_React$Component) {
                                     ', ',
                                     _react2.default.createElement(
                                         'a',
-                                        { href: 'mailto:' },
+                                        { href: 'mailto:jafr15aj@student.cbs.dk' },
                                         'Jacob Friis'
                                     ),
                                     ', ',
                                     _react2.default.createElement(
                                         'a',
-                                        { href: 'mailto:' },
+                                        { href: 'mailto:olsk15ab@student.cbs.dk' },
                                         'Oliver Skj\xF8nnemand'
                                     ),
                                     ', and ',
                                     _react2.default.createElement(
                                         'a',
-                                        { href: 'mailto:' },
+                                        { href: 'mailto:masc16ay@student.cbs.dk' },
                                         'Marcel Schrode'
                                     )
                                 )
