@@ -6,11 +6,9 @@ production (i.e. SQLite3). This documentation has two main sections. The first s
 technologies we have employed so that the reader has a bit of background knowledge. The second section is a walkthrough
 of the project structure and an explanation of some of the most important source code and its functionality.
 
----
-
 # 1. Technology stack
 
-This project is build using the following core technologies:
+This project is built using the following core technologies:
 
 * Node
 * Express
@@ -59,9 +57,7 @@ SQLite3 was the safest and fastest choice of database for an experimental projec
 it is self-contained, meaning that nothing needs to be installed unlike almost all other databases. SQLite3 is a
 relational database which means that it understands most basic SQL syntax.
 
----
-
-# 2.0 Project walkthrough
+# 2. Project walkthrough
 
 This is the heavy part. One of the hardest parts of programming isn't developing code, but *reading and understanding*
 other people's code. Therefore, take your time and read all this through several times. You will never gain a full
