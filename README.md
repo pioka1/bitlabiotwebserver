@@ -33,8 +33,8 @@ following:
 
 1. A project folder structure.
 2. Creates and launches a web server with a pre-defined port 3000.
-3. A lightweight app.js file (see 2.X) with basic debug settings, default templating engine, and a public folder.
-4. Generates two basic routes (see 2.X).
+3. A lightweight app.js file (see 2.4) with basic debug settings, default templating engine, and a public folder.
+4. Generates two basic routes (see 2.6).
 5. Two basic Pug (the default templating engine) files
 
 The Express framework essentially sets you up so that you can immediately launch the server and be greeted with the
