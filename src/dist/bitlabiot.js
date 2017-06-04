@@ -9541,24 +9541,6 @@ var AppLayout = function (_React$Component) {
                                 { className: 'col-md-4' },
                                 _react2.default.createElement(
                                     'p',
-                                    { className: 'copyright' },
-                                    'Copyright \xA9 2017. All Rights Reserved.'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-md-4' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { id: 'contact-us-btn', onclick: 'location.href=\'mailto:rup.itm@cbs.dk\';' },
-                                    'Contact Us'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-md-4' },
-                                _react2.default.createElement(
-                                    'p',
                                     null,
                                     _react2.default.createElement(
                                         'strong',
@@ -9588,6 +9570,24 @@ var AppLayout = function (_React$Component) {
                                         { href: 'mailto:masc16ay@student.cbs.dk' },
                                         'Marcel Schrode'
                                     )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-md-4' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { id: 'contact-us-btn', onclick: 'location.href=\'mailto:rup.itm@cbs.dk\';' },
+                                    'Contact Us'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-md-4' },
+                                _react2.default.createElement(
+                                    'p',
+                                    { id: 'copyright' },
+                                    'Copyright \xA9 2017. All Rights Reserved.'
                                 )
                             )
                         )
@@ -9709,12 +9709,12 @@ var Clock = function (_React$Component) {
                 { id: "clock" },
                 _react2.default.createElement(
                     "p",
-                    null,
+                    { id: "date" },
                     this.state.date.toLocaleDateString()
                 ),
                 _react2.default.createElement(
                     "p",
-                    null,
+                    { id: "time" },
                     this.state.date.toLocaleTimeString()
                 )
             );

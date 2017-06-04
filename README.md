@@ -10,7 +10,7 @@ of the project structure and an explanation of some of the most important source
 
 This project is built using the following core technologies:
 
-* Node
+* Node.js
 * Express
 * React
 * SQLite3
@@ -23,19 +23,19 @@ Node.js is a JavaScript run-time environment that essentially introduces JS for 
 exclusively provided on the frontend, by adding a reference to the JS file in the HTML. The browser would then download
 this file and execute it using its own JavaScript interpreter. Google's interpreter which is used by Google Chrome is
 called the V8 Engine, and Node.js is built upon this very engine. Node.js allows for the development of an entire
-project - both frontend and backend - using the same programming language.
+web project - both frontend and backend - using the same programming language.
 
 ## 1.2 Express
 
 Express is the name of the most popular Node.js framework used today at the time of writing. It is lightweight, makes
-barely any decisions, and provides you with just enough code to get started with your project. Express generates the
+almost no assumptions, and provides you with just enough code to get started with your project. Express generates the
 following:
 
 1. A project folder structure.
-2. Creates and launches a web server with a pre-defined port 3000.
+2. Creates and launches a web server with a pre-defined port (3000).
 3. A lightweight app.js file (see 2.4) with basic debug settings, default templating engine, and a public folder.
 4. Generates two basic routes (see 2.6).
-5. Two basic Pug (the default templating engine) files
+5. Two basic Pug files.
 
 The Express framework essentially sets you up so that you can immediately launch the server and be greeted with the
 "Welcome to Express!" message by visiting http://localhost:3000.
@@ -43,7 +43,7 @@ The Express framework essentially sets you up so that you can immediately launch
 ## 1.3 React
 
 React is a frontend library developed by Facebook. Projects built on React divide the entire frontend layout into
-so-called "components" (see 2.x). React controls everything that happens visually on your project and updates only the
+so-called "components" (see 2.9). React controls everything that happens visually on your project and updates only the
 relevant components when data input changes. This is a different way of dealing with the frontend than how it used to
 be done traditionally. When Express generates your project, it uses Pug as the default templating engine. Templating
 engines are smarter, faster ways of writing HTML code. People don't always agree on the best way of doing things
@@ -53,9 +53,9 @@ create a basic HTML skeleton. This is where React kicks in and controls everythi
 
 ## 1.4 SQLite3
 
-SQLite3 was the safest and fastest choice of database for an experimental project such as ours. SQLite3 is great because
-it is self-contained, meaning that nothing needs to be installed unlike almost all other databases. SQLite3 is a
-relational database which means that it understands most basic SQL syntax.
+SQLite3 was the easiest and fastest choice of database for an experimental project such as ours. SQLite3 is great because
+it is self-contained, meaning that nothing needs to be installed to the operating system unlike almost all other
+databases. SQLite3 is a relational database which means that it understands most basic SQL syntax.
 
 # 2. Project walkthrough
 
@@ -90,7 +90,7 @@ extremely time-consuming and ineffective. React components even look like a weir
 can all of this work? Our solution is a dependency called Webpack, which we have added in our `package.json`. Webpack
 does two things: 1) It *transpiles* all of the files written in newer technologies into pure HTML, CSS, and JavaScript.
 In our case, it is only the CSS and JavaScript that is created, since React takes care of generating the HTML for us.
-2) It *merges* all of the files into a single CSS and JavaScript files. This allows us to organize our code into
+2) It *merges* all of the files into a single CSS and JavaScript file. This allows us to organize our code into
 different components which matches the way you organize React components.
 
 ## 2.4 `app.js`
@@ -101,9 +101,9 @@ launching your project.
 
 ## 2.5 `app-client.js`
 
-The placement of this file is perhaps a bit misleading. It is not an ordinary JS file and is never read by Node. This
-file tells React where to be injected on page load. Imagine a tree structure of React components where this file is at
-the very top.
+The placement and naming of this file is perhaps a bit misleading. It is not an ordinary JS file and is never read by
+Node. This file tells React where to be injected on page load. Imagine a tree structure of React components where this
+file is at the very top.
 
 ## 2.6 `routes.js`
 

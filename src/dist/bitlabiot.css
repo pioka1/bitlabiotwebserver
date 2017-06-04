@@ -1,12 +1,12 @@
 body {
-  margin: 0 0 60px;
+  margin: 0 0 190px !important;
   background-color: transparent !important; }
 
 footer {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 60px;
+  height: 190px;
   width: 100%;
   background: #666666;
   padding: 8px 0; }
@@ -21,6 +21,13 @@ footer {
     border-radius: 4px;
     display: block;
     margin: 0 auto; }
+    footer #contact-us-btn:hover, footer #contact-us-btn:active, footer #contact-us-btn:focus {
+      background-color: #49649f; }
+  footer #copyright {
+    font-size: 1rem;
+    margin-top: 16px;
+    color: #999;
+    text-align: center; }
 
 #app-anchor {
   padding: 0; }
@@ -30,15 +37,20 @@ header {
   padding: 8px 0;
   box-shadow: 2px 2px 2px #ccc; }
   header #cbs-logo {
-    max-height: 82px; }
+    max-height: 82px;
+    display: block;
+    margin: 0 auto; }
   header h1, header #clock p {
     color: #FFFFFF; }
   header h1 {
     text-align: center;
     text-shadow: #000 1px 1px; }
   header #clock {
-    margin-top: 8px;
-    float: right; }
+    margin-top: 8px; }
+    header #clock p {
+      display: inline-block; }
+    header #clock #time {
+      float: right; }
 
 main {
   margin: 12px 0; }
@@ -68,6 +80,23 @@ ul {
   background-color: #FFFFFF;
   border-top: #CCCCCC 1px solid;
   border-bottom: #CCCCCC 1px solid; }
+
+@media (min-width: 992px) {
+  header #cbs-logo {
+    display: initial;
+    margin: 0; }
+  header #clock p {
+    display: block;
+    text-align: right; }
+  header #clock #time {
+    float: none; }
+  body {
+    margin: 0 0 70px !important; }
+  footer {
+    height: 70px; }
+  footer #copyright {
+    margin-top: 0;
+    text-align: right; } }
 @charset "UTF-8";
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)

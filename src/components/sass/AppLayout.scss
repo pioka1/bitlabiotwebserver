@@ -1,14 +1,14 @@
 @import './variables.scss';
 
 body {
-	margin: 0 0 60px;
+	margin: 0 0 190px !important;
 	background-color: transparent !important;
 }
 footer {
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	height: 60px;
+	height: 190px;
 	width: 100%;
 	background: #666666;
 	padding: 8px 0;
@@ -24,6 +24,15 @@ footer {
 		border-radius: 4px;
 		display: block;
 		margin: 0 auto;
+		&:hover, &:active, &:focus {
+			background-color: #49649f;
+		}
+	}
+	#copyright {
+		font-size: $text-s;
+		margin-top: 16px;
+		color: #999;
+		text-align: center;
 	}
 }
 #app-anchor {
@@ -35,6 +44,8 @@ header {
 	box-shadow: 2px 2px 2px #ccc;
 	#cbs-logo {
 		max-height: 82px;
+		display: block;
+		margin: 0 auto;
 	}
 	h1, #clock p {
 		color: #FFFFFF;
@@ -45,7 +56,12 @@ header {
 	}
 	#clock {
 		margin-top: 8px;
-		float: right;
+		p {
+			display: inline-block;
+		}
+		#time {
+			float: right;
+		}
 	}
 }
 main {
@@ -79,4 +95,29 @@ ul {
 	background-color: #FFFFFF;
 	border-top: #CCCCCC 1px solid;
 	border-bottom: #CCCCCC 1px solid;
+}
+
+@media (min-width: 992px) {
+
+	header #cbs-logo {
+		display: initial;
+		margin: 0;
+	}
+	header #clock p {
+		display: block;
+		text-align: right;
+	}
+	header #clock #time {
+		float: none;
+	}
+	body {
+		margin: 0 0 70px !important;
+	}
+	footer {
+		height: 70px;
+	}
+	footer #copyright {
+		margin-top: 0;
+		text-align: right;
+	}
 }
