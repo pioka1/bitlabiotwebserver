@@ -9485,6 +9485,11 @@ var AppLayout = function (_React$Component) {
     }
 
     _createClass(AppLayout, [{
+        key: 'handleEmailButton',
+        value: function handleEmailButton() {
+            location.href = 'mailto:rup.itm@cbs.dk';
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -9577,7 +9582,7 @@ var AppLayout = function (_React$Component) {
                                 { className: 'col-md-4' },
                                 _react2.default.createElement(
                                     'button',
-                                    { id: 'contact-us-btn', onclick: 'location.href=\'mailto:rup.itm@cbs.dk\';' },
+                                    { id: 'contact-us-btn', onClick: this.handleEmailButton },
                                     'Contact Us'
                                 )
                             ),
@@ -9591,8 +9596,7 @@ var AppLayout = function (_React$Component) {
                                 )
                             )
                         )
-                    ),
-                    _react2.default.createElement('div', { className: 'container' })
+                    )
                 )
             );
         }

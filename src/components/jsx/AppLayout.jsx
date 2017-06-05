@@ -6,6 +6,10 @@ import LogoImg from '../../assets/cbs_logo.svg';
 import '../sass/AppLayout.scss';
 
 export default class AppLayout extends React.Component {
+    handleEmailButton() {
+        location.href='mailto:rup.itm@cbs.dk';
+    }
+
     render() {
         return (
             <div id="app-anchor" className="container-fluid">
@@ -33,15 +37,12 @@ export default class AppLayout extends React.Component {
                                 <p><strong>Created by: </strong><a href="mailto:niho12ag@student.cbs.dk">Niclas Horstad</a>, <a href="mailto:jafr15aj@student.cbs.dk">Jacob Friis</a>, <a href="mailto:olsk15ab@student.cbs.dk">Oliver Skjønnemand</a>, and <a href="mailto:masc16ay@student.cbs.dk">Marcel Schrode</a></p>
                             </div>
                             <div className="col-md-4">
-                                <button id="contact-us-btn" onclick="location.href='mailto:rup.itm@cbs.dk';">Contact Us</button>
+                                <button id="contact-us-btn" onClick={this.handleEmailButton}>Contact Us</button>
                             </div>
                             <div className="col-md-4">
                                 <p id="copyright">Copyright &copy; 2017. All Rights Reserved.</p>
                             </div>
                         </div>
-                    </div>
-                    <div className="container">
-
                     </div>
                 </footer>
             </div>
