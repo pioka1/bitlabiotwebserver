@@ -79,7 +79,7 @@ module.exports = function(db) {
             /*
              *   TODO: If a limit parameter is included, change the database call accordingly.
              */
-            db.each('SELECT * FROM Measurements WHERE device='+device_id+' LIMIT 50', function(err, row) {
+            db.each('SELECT * FROM Measurements WHERE device = ? ORDER BY measurement_id DESC LIMIT 50', device_id, function(err, row) {
                 if (err) {
                     console.error("Error at SELECT Measurements\n" + err);
                     // Send empty array if Device exists but no Measurement records
