@@ -20,7 +20,7 @@ db.serialize(function() {
         db.run('CREATE TABLE Measurements (measurement_id INTEGER PRIMARY KEY, device INTEGER, noise REAL, date TEXT, FOREIGN KEY(device) REFERENCES Devices(id))');
 
         // Insert devices in array
-        let devices = ['alpha', 'beta', 'charlie', 'delta'];
+/*        let devices = ['alpha', 'beta', 'charlie', 'delta'];
         for (let i = 0; i < devices.length; i++) {
             db.run('INSERT INTO Devices(name) VALUES (?)', devices[i]);
         }
@@ -34,7 +34,7 @@ db.serialize(function() {
 
                 db.run('INSERT INTO Measurements(device, noise, date) VALUES (?, ?, ?)', [device, noise, date]);
             }
-        }
+        }*/
     }
 });
 
